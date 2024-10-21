@@ -705,6 +705,11 @@
         }
     };
 
+    // Capturar el evento del menú contextual
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault(); // Prevenir que aparezca el menú
+        });
+
         let currentIndex = 0; // Índice actual del carrusel
         let autoSlideInterval;
         let autoSlideEnabled = true; // Controla si el carrusel se mueve automáticamente
