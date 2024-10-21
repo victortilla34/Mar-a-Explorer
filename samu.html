@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>María Explorer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <style>
+    .Nitamensaje {
+      border-radius: 3.125vw; 
+      background: #ffffff;
+      box-shadow: 0 0.25vw 0.625vw 0 #603E3E;
+      width: 80%;
+      max-width: 50vw;
+      height: 70vh;
+      padding: 2vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .tnita {
+      color: #521d2d;
+      font-family: "Satisfy", cursive;
+      font-size: 3vw;
+      font-style: normal;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2vw;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s ease;
+      width: 100%;
+    }
+
+    .carousel-item {
+      min-width: 100%;
+      height: 50vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .carousel-item img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 2vw;
+      object-fit: cover;
+    }
+
+    .carousel-text {
+      font-size: 2vw;
+      color: #521d2d;
+      text-align: center;
+      display: none;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      padding: 1rem;
+      color: #521d2d;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+    .carousel-item carousel-text {
+      color: #777777;
+    font-family: Rubik;
+    font-size: 1.125vw;
+    font-style: normal;
+    font-weight: 600;
+    text-align: justify;
+    margin: 3vw;
+    overflow-y: auto;
+    height: 49vh;
+    border-radius: 1.5vw;
+    margin-top: -5vh;
+    }
+
+    @media (max-width: 768px) {
+      .Nitamensaje {
+        height: 70vh;
+        padding: 10px;
+      }
+
+      .tnita {
+        font-size: 5vw;
+      }
+
+      .carousel-item {
+        height: 50vh;
+      }
+
+      .carousel-text {
+        font-size: 4vw;
+      }
+
+      .prev, .next {
+        font-size: 2rem;
+        padding: 5px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .Nitamensaje {
+        height: 70vh;
+        max-width: 70vw;
+
+        
+      }
+
+      .tnita {
+        font-size: 7vw;
+      }
+
+      .carousel-item {
+        height: 60vh;
+      }
+
+      .prev, .next {
+        font-size: 1.8rem;
+        padding: 4px;
+      }
+      }
+    
+
+  </style>
+</head>
+<body>
+  <div class="Nitamensaje">
+    <h2 class="tnita">Sergi García</h2>
+
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item">
+          <img src="./samu 1.jpg" alt="Imagen 1">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 2.jpg" alt="Imagen 2">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 3.jpg" alt="Imagen 3">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 4.jpg" alt="Imagen 4">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 5.jpg" alt="Imagen 5">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 6.jpg" alt="Imagen 6">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 7.jpg" alt="Imagen 7">
+        </div>
+        <div class="carousel-item">
+          <img src="./samu 8.jpg" alt="Imagen 8">
+        </div>
+        <div class="carousel-item">
+          <img src="./txtsamu.png" alt="Imagen 9">
+        </div>
+      </div>
+
+      <div class="prev" onclick="moveCarousel(-1)">&#10094;</div>
+      <div class="next" onclick="moveCarousel(1)">&#10095;</div>
+    </div>
+  </div>
+
+  <script>
+    let currentIndex = 0;
+
+    function moveCarousel(direction) {
+      const carouselInner = document.querySelector('.carousel-inner');
+      const totalItems = document.querySelectorAll('.carousel-item').length;
+
+      currentIndex = (currentIndex + direction + totalItems) % totalItems;
+      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Mostrar el texto si estamos en la última diapositiva
+      const lastItem = totalItems - 1;
+      if (currentIndex === lastItem) {
+        document.querySelector('.carousel-text').style.display = 'block';
+      } else {
+        document.querySelector('.carousel-text').style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
+

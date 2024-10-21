@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>María Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+         .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5); 
+        }
+        .modal-content {
+            background-color: #E7C3BF;
+            margin: 15vh auto;
+            padding: 2.08vw;
+            border-radius: 1.04vw;
+            width: 31.25vw;
+            text-align: center;
+            color: #521D2D;
+            box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
+        }
+        .modal-content input[type="password"] {
+            width: 25vw;
+            padding: 1.04vw;
+            margin: 1.04vw 0;
+            border: 0.1vw solid #ccc;
+            border-radius: 0.52vw;
+        }
+        .modal-content button {
+            padding: 1.04vw 2.08vw;
+            background-color: #7d4554;
+            color: white;
+            border: none;
+            border-radius: 0.52vw;
+            cursor: pointer;
+        }
+        .modal-content button:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 768px) {
+    .modal-content {
+        width: 80vw; /* Aumentamos el ancho en pantallas más pequeñas */
+        padding: 5vw; /* Más espacio de relleno */
+        margin: 10vh auto; /* Ajustar el margen superior */
+        border-radius: 2vw;
+    }
+
+    .modal-content input[type="password"] {
+        width: 70vw; /* Aumentamos el tamaño del input para móviles */
+        padding: 3vw; /* Aumentamos el padding */
+        font-size: 4vw; /* Aumentamos el tamaño de la fuente */
+    }
+
+    .modal-content button {
+        width: 50vw; /* Ajustamos el ancho del botón para móviles */
+        padding: 2vw;
+        font-size: 4vw; /* Aumentamos el tamaño de la fuente del botón */
+        border-radius: 2vw;
+    }
+}
+        
+        
+    </style>
+</head>
+<body>
+<div>
+    <!-- Sección del título y el campo de búsqueda -->
+    <div class="container">
+        <h1>María Explorer</h1>
+        <input type="text" id="searchInput" placeholder="Buscar a un ser querido..." onkeyup="buscarNombre()">
+    </div>
+
+    <!-- Sección del carrusel con los nombres -->
+    <div class="container2">
+        <div id="carouselContainer">
+            <button class="prev" onclick="moverCarrusel(-1)">❮</button>
+            
+            <div id="nameCarousel" class="carousel">
+<!-- Papi Lucho -->
+<div class="carousel-item" data-name="Papi Lucho">
+    <div class="contenedorimg">
+        <img src="./Papi Lucho.jpg" alt="Imagen de Papi Lucho">
+    </div>
+    <button onclick="showPasswordPrompt('Papi Lucho')">Papi Lucho</button>
+</div>
+
+
+<!-- Berni -->
+<div class="carousel-item" data-name="Berni">
+    <div class="contenedorimg">
+        <img src="./berni.jpeg" alt="Imagen de Berni">
+    </div>
+    <button onclick="showPasswordPrompt('Berni')">Berni</button>
+</div>
+
+<!-- Samu -->
+<div class="carousel-item" data-name="Samu">
+    <div class="contenedorimg">
+        <img src="./samu.png" alt="Imagen de Samu">
+    </div>
+    <button onclick="showPasswordPrompt('Samu')">Samu</button>
+</div>
+
+<!-- Tía Norbely -->
+<div class="carousel-item" data-name="Tía Norbely">
+    <div class="contenedorimg">
+        <img src="./Tía Norbely.jpg" alt="Imagen de Tía Norbely">
+    </div>
+    <button onclick="showPasswordPrompt('Tía Norbely')">Tía Norbely</button>
+</div>
+
+<!-- Mami -->
+<div class="carousel-item" data-name="Mami">
+    <div class="contenedorimg">
+        <img src="./mama 1.jpg" alt="Imagen de Mami">
+    </div>
+    <button onclick="showPasswordPrompt('Mami')">Mami</button>
+</div>
+
+<!-- Luisfer Ortega y familia -->
+<div class="carousel-item" data-name="Luisfer Ortega y familia">
+    <div class="contenedorimg">
+        <img src="./Luisfer Ortega y familia.jpg" alt="Imagen de Luisfer Ortega y familia">
+    </div>
+    <button onclick="showPasswordPrompt('Luisfer Ortega y familia')">Luisfer Ortega y familia</button>
+</div>
+
+<!-- Sergi García -->
+<div class="carousel-item" data-name="Sergi García">
+    <div class="contenedorimg">
+        <img src="./sergi.jpeg" alt="Imagen de Sergi García">
+    </div>
+    <button onclick="showPasswordPrompt('Sergi García')">Sergi García</button>
+</div>
+
+<!-- Tío Richard y Familia -->
+<div class="carousel-item" data-name="Tío Richard y Familia">
+    <div class="contenedorimg">
+        <img src="./Tío Richard y Familia.jpg" alt="Imagen de Tío Richard y Familia">
+    </div>
+    <button onclick="showPasswordPrompt('Tío Richard y Familia')">Tío Richard y Familia</button>
+</div>
+
+<!-- María Rosa Ardila -->
+<div class="carousel-item" data-name="María Rosa Ardila">
+    <div class="contenedorimg">
+        <img src="./María Rosa Ardila.jpg" alt="Imagen de María Rosa Ardila">
+    </div>
+    <button onclick="showPasswordPrompt('María Rosa Ardila')">María Rosa Ardila</button>
+</div>
+
+
+
+<!-- Victor Rodríguez -->
+<div class="carousel-item" data-name="Victor Rodríguez">
+    <div class="contenedorimg">
+        <img src="./victor rodriguez.PNG" alt="Imagen de Victor Rodríguez">
+    </div>
+    <button onclick="showPasswordPrompt('Victor Rodríguez')">Victor Rodríguez</button>
+</div>
+
+<!-- Mónica Arrieta -->
+<div class="carousel-item" data-name="Mónica Arrieta">
+    <div class="contenedorimg">
+        <img src="./Mónica Arrieta.jpg" alt="Imagen de Mónica Arrieta">
+    </div>
+    <button onclick="showPasswordPrompt('Mónica Arrieta')"> Mónica Arrieta</button>
+</div>
+
+<!-- María Clara Lafaurie -->
+<div class="carousel-item" data-name="María Clara Lafaurie">
+    <div class="contenedorimg">
+        <img src="./MCL.jpg" alt="Imagen de María Clara Lafaurie">
+    </div>
+    <button onclick="showPasswordPrompt('María Clara Lafaurie')">María Clara Lafaurie</button>
+</div>
+
+<!-- Katia Rodríguez -->
+<div class="carousel-item" data-name="Katia Rodríguez">
+    <div class="contenedorimg">
+        <img src="./kr.jpg" alt="Imagen de Katia Rodríguez">
+    </div>
+    <button onclick="showPasswordPrompt('Katia Rodríguez')">Katia Rodríguez</button>
+</div>
+
+<!-- Emi Eliécer -->
+<div class="carousel-item" data-name="Emi Eliécer">
+    <div class="contenedorimg">
+        <img src="./Emi Eliécer.jpg" alt="Imagen de Emi Eliécer">
+    </div>
+    <button onclick="showPasswordPrompt('Emi Eliécer')">Emi Eliécer</button>
+</div>
+
+<!-- Profe Diana -->
+<div class="carousel-item" data-name="Profe Diana">
+    <div class="contenedorimg">
+        <img src="./Profe Diana.jpg" alt="Imagen de Profe Diana">
+    </div>
+    <button onclick="showPasswordPrompt('Profe Diana')">Profe Diana</button>
+</div>
+
+<!-- Mónica Ramírez -->
+<div class="carousel-item" data-name="Mónica Ramírez">
+    <div class="contenedorimg">
+        <img src="./Mónica Ramírez.jpg" alt="Imagen de Mónica Ramírez">
+    </div>
+    <button onclick="showPasswordPrompt('Mónica Ramírez')">Mónica Ramírez</button>
+</div>
+
+<!-- Mario Meza -->
+<div class="carousel-item" data-name="Mario Meza">
+    <div class="contenedorimg">
+        <img src="./Mario meza img.jpg" alt="Imagen de Mario Meza">
+    </div>
+    <button onclick="showPasswordPrompt('Mario Meza')">Mario Meza</button>
+</div>
+
+<!-- Angels Ortiz -->
+<div class="carousel-item" data-name="Angels Ortiz">
+    <div class="contenedorimg">
+        <img src="./angeles.jpg" alt="Imagen de Angels Ortiz">
+    </div>
+    <button onclick="showPasswordPrompt('Angels Ortiz')">Angels Ortiz</button>
+</div>
+
+<!-- Noah Vera -->
+<div class="carousel-item" data-name="Noah Vera">
+    <div class="contenedorimg">
+        <img src="./Noah Vera.jpg" alt="Imagen de Noah Vera">
+    </div>
+    <button onclick="showPasswordPrompt('Noah Vera')">Noah Vera</button>
+</div>
+
+<!-- Tía Genny -->
+<div class="carousel-item" data-name="Tía Genny">
+    <div class="contenedorimg">
+        <img src="./Tía Genny.jpg" alt="Imagen de Tía Genny">
+    </div>
+    <button onclick="showPasswordPrompt('Tía Genny')">Tía Genny</button>
+</div>
+
+<!-- Tía Ingrid -->
+<div class="carousel-item" data-name="Tía Ingrid">
+    <div class="contenedorimg">
+        <img src="./Tía Ingrid.jpg" alt="Imagen de Tía Ingrid">
+    </div>
+    <button onclick="showPasswordPrompt('Tía Ingrid')">Tía Ingrid</button>
+</div>
+
+<!-- Diana Maldonado -->
+<div class="carousel-item" data-name="Diana Maldonado">
+    <div class="contenedorimg">
+        <img src="./DIANA MALDONADO.jpg" alt="Imagen de Diana Maldonado">
+    </div>
+    <button onclick="showPasswordPrompt('Diana Maldonado')">Diana Maldonado</button>
+</div>
+
+<!-- Omar Pérez -->
+<div class="carousel-item" data-name="Omar Pérez">
+    <div class="contenedorimg">
+        <img src="./Omar.jpg" alt="Imagen de Omar Pérez">
+    </div>
+    <button onclick="showPasswordPrompt('Omar Pérez')">Omar Pérez</button>
+</div>
+
+<!-- Papá -->
+<div class="carousel-item" data-name="Papá">
+    <div class="contenedorimg">
+        <img src="Papá.jpg" alt="Imagen de Papá">
+    </div>
+    <button onclick="showPasswordPrompt('Papá')">Papá</button>
+</div>
+
+<!-- Alejandro Mercader y flia -->
+<div class="carousel-item" data-name="Alejandro Mercader y flia">
+    <div class="contenedorimg">
+        <img src="./Alejandro Mercader y Familia.jpg" alt="Imagen de Alejandro Mercader y flia">
+    </div>
+    <button onclick="showPasswordPrompt('Alejandro Mercader y flia')">Alejandro Mercader y flia</button>
+</div>
+
+<!-- María Carolina -->
+<div class="carousel-item" data-name="María Carolina">
+    <div class="contenedorimg">
+        <img src="./María Carolina.jpg" alt="Imagen de María Carolina">
+    </div>
+    <button onclick="showPasswordPrompt('María Carolina')">María Carolina</button>
+</div>
+
+<!-- Anel -->
+<div class="carousel-item" data-name="Anel">
+    <div class="contenedorimg">
+        <img src="./Anel.jpg" alt="Imagen de Anel">
+    </div>
+    <button onclick="showPasswordPrompt('Anel')">Anel</button>
+</div>
+
+<!-- Yenifer Rojas -->
+<div class="carousel-item" data-name="Yenifer Rojas">
+    <div class="contenedorimg">
+        <img src="./YENIFER ROJAS.jpg" alt="Imagen de Yenifer Rojas">
+    </div>
+    <button onclick="showPasswordPrompt('Yenifer Rojas')">Yenifer Rojas</button>
+</div>
+
+<!-- Tío Luchi -->
+<div class="carousel-item" data-name="Tío Luchi">
+    <div class="contenedorimg">
+        <img src="./Tío Luchi.jpg" alt="Imagen de Tío Luchi">
+    </div>
+    <button onclick="showPasswordPrompt('Tío Luchi')">Tío Luchi</button>
+</div>
+
+<!-- Erik Helbek -->
+<div class="carousel-item" data-name="Erik Helbek">
+    <div class="contenedorimg">
+        <img src="./Erik Helbek.jpg" alt="Imagen de Erik Helbek">
+    </div>
+    <button onclick="showPasswordPrompt('Erik Helbek')">Erik Helbek</button>
+</div>
+
+<!-- Mónica Fernández -->
+<div class="carousel-item" data-name="Mónica Fernández">
+    <div class="contenedorimg">
+        <img src="./MÓNICA FERNÁNDEZ.jpg" alt="Imagen de Mónica Fernández">
+    </div>
+    <button onclick="showPasswordPrompt('Mónica Fernández')">Mónica Fernández</button>
+</div>
+
+<!-- Fran y Dani -->
+<div class="carousel-item" data-name="Fran y Dani">
+    <div class="contenedorimg">
+        <img src="./Fran y Dani.jpg" alt="Imagen de Fran y Dani">
+    </div>
+    <button onclick="showPasswordPrompt('Fran y Dani')">Fran y Dani</button>
+</div>
+
+<!-- Prima Lissette Ramos -->
+<div class="carousel-item" data-name="Prima Lissette Ramos">
+    <div class="contenedorimg">
+        <img src="./Prima Lissette Ramos.jpg" alt="Imagen de Prima Lissette Ramos">
+    </div>
+    <button onclick="showPasswordPrompt('Prima Lissette Ramos')">Prima Lissette Ramos</button>
+</div>
+
+<!-- Alejo y Katha -->
+<div class="carousel-item" data-name="Alejo y Katha">
+    <div class="contenedorimg">
+        <img src="./ALEJO Y KATHA.jpg" alt="Imagen de Alejo y Katha">
+    </div>
+    <button onclick="showPasswordPrompt('Alejo y Katha')">Alejo y Katha</button>
+</div>
+
+<!-- Kevin Maldonado -->
+<div class="carousel-item" data-name="Kevin Maldonado">
+    <div class="contenedorimg">
+        <img src="./Kevin Maldonado.jpg" alt="Imagen de Kevin Maldonado">
+    </div>
+    <button onclick="showPasswordPrompt('Kevin Maldonado')">Kevin Maldonado</button>
+</div>
+
+<!-- Noa Martínez -->
+<div class="carousel-item" data-name="Noa Martínez">
+    <div class="contenedorimg">
+        <img src="./noa.jpg" alt="Imagen de Noa Martínez">
+    </div>
+    <button onclick="showPasswordPrompt('Noa Martínez')">Noa Martínez</button>
+</div>
+
+<!-- Alejo Trias -->
+<div class="carousel-item" data-name="Alejo Trias">
+    <div class="contenedorimg">
+        <img src="./Alejo.jpeg" alt="Imagen de Alejo Trias">
+    </div>
+    <button onclick="showPasswordPrompt('Alejo Trias')">Alejo Trias</button>
+</div>
+
+<!-- Nita Santiago -->
+<div class="carousel-item" data-name="Nita Santiago">
+    <div class="contenedorimg">
+        <img src="./nita.JPG" alt="Imagen de Nita Santiago">
+    </div>
+    <button onclick="showPasswordPrompt('Nita Santiago')">Nita Santiago</button>
+</div>
+
+<!-- Carls Asensio -->
+<div class="carousel-item" data-name="Carls Asensio">
+    <div class="contenedorimg">
+        <img src="./carla.jpg" alt="Imagen de Carls Asensio">
+    </div>
+    <button onclick="showPasswordPrompt('Carls Asensio')">Carls Asensio</button>
+</div>
+
+<!-- Dr. Ricardo Jorquera -->
+<div class="carousel-item" data-name="Dr. Ricardo Jorquera">
+    <div class="contenedorimg">
+        <img src="./Dr. Ricardo Jorquera.jpg" alt="Imagen de Dr. Ricardo Jorquera">
+    </div>
+    <button onclick="showPasswordPrompt('Dr. Ricardo Jorquera')">Dr. Ricardo Jorquera</button>
+</div>
+
+<!-- Javier Quiroz -->
+<div class="carousel-item" data-name="Javier Quiroz">
+    <div class="contenedorimg">
+        <img src="./JAVIER QUIROZ.jpg" alt="Imagen de Javier Quiroz">
+    </div>
+    <button onclick="showPasswordPrompt('Javier Quiroz')">Javier Quiroz</button>
+</div>
+
+<!-- Sebas Nordewier -->
+<div class="carousel-item" data-name="Sebas Nordewier">
+    <div class="contenedorimg">
+        <img src="./SEBASTIAAN NOORDEWIER.jpg" alt="Imagen de Sebas Nordewier">
+    </div>
+    <button onclick="showPasswordPrompt('Sebas Nordewier')">Sebas Nordewier</button>
+</div>
+
+<!-- Maripau Carrillo -->
+<div class="carousel-item" data-name="Maripau Carrillo">
+    <div class="contenedorimg">
+        <img src="./MARIPAU CARRILLO.jpg" alt="Imagen de Maripau Carrillo">
+    </div>
+    <button onclick="showPasswordPrompt('Maripau Carrillo')">Maripau Carrillo</button>
+</div>
+
+<!-- Alfonso Rodríguez -->
+<div class="carousel-item" data-name="Alfonso Rodríguez">
+    <div class="contenedorimg">
+        <img src="./Alfonso.jpg" alt="Imagen de Alfonso Rodríguez">
+    </div>
+    <button onclick="showPasswordPrompt('Alfonso Rodríguez')">Alfonso Rodríguez</button>
+</div>
+
+<!-- Darlys -->
+<div class="carousel-item" data-name="Darlys">
+    <div class="contenedorimg">
+        <img src="./Darlys.jpg" alt="Imagen de Darlys">
+    </div>
+    <button onclick="showPasswordPrompt('Darlys')">Darlys</button>
+</div>
+
+<!-- Familia Gómez Ahumada -->
+<div class="carousel-item" data-name="Familia Gómez Ahumada">
+    <div class="contenedorimg">
+        <img src="./Familia Gómez Ahumada.jpg" alt="Imagen de Familia Gómez Ahumada">
+    </div>
+    <button onclick="showPasswordPrompt('Familia Gómez Ahumada')">Familia Gómez Ahumada</button>
+</div>
+
+<!-- Jorge Santiago -->
+<div class="carousel-item" data-name="Jorge Santiago">
+    <div class="contenedorimg">
+        <img src="./JORGE SANTIAGO.jpg" alt="Imagen de Jorge Santiago">
+    </div>
+    <button onclick="showPasswordPrompt('Jorge Santiago')">Jorge Santiago</button>
+</div>
+
+<!-- Daniela Ortega y familia -->
+<div class="carousel-item" data-name="Daniela Ortega y familia">
+    <div class="contenedorimg">
+        <img src="./Daniela ortega.jpg" alt="Imagen de Daniela Ortega y familia" style="margin-top: 2vw;">
+    </div>
+    <button onclick="showPasswordPrompt('Daniela Ortega y familia')">Daniela Ortega y familia</button>
+</div>
+
+<!-- Nicolás Forcadell Bordoy -->
+<div class="carousel-item" data-name="Nicolás Forcadell Bordoy">
+    <div class="contenedorimg">
+        <img src="./Nicolás Forcadell Bordoy.jpg" alt="Imagen de Nicolás Forcadell Bordoy">
+    </div>
+    <button onclick="showPasswordPrompt('Nicolás Forcadell Bordoy')">Nicolás Forcadell Bordoy</button>
+</div>
+
+<!-- Daniela Rodriguez -->
+<div class="carousel-item" data-name="Daniela Rodriguez">
+    <div class="contenedorimg">
+        <img src="./Daniela.jpg" alt="Imagen de Daniela Rodriguez">
+    </div>
+    <button onclick="showPasswordPrompt('Daniela Rodriguez')">Daniela Rodriguez</button>
+</div>
+
+<!-- Lina Torres -->
+<div class="carousel-item" data-name="Lina Torres">
+    <div class="contenedorimg">
+        <img src="./LINA TORRES.jpg" alt="Imagen de Lina Torres">
+    </div>
+    <button onclick="showPasswordPrompt('Lina Torres')">Lina Torres</button>
+</div>
+
+<!-- Beverly y familia -->
+<div class="carousel-item" data-name="Beverly y familia">
+    <div class="contenedorimg">
+        <img src="./Beverly y familia.jpg" alt="Imagen de Beverly y familia">
+    </div>
+    <button onclick="showPasswordPrompt('Beverly y familia')">Beverly y familia</button>
+</div>
+
+<!-- Andrea D'Ortenzio -->
+<div class="carousel-item" data-name="Andrea D'Ortenzio">
+    <div class="contenedorimg">
+        <img src="./Andrea o.jpg" alt="Imagen de Andrea D'Ortenzio">
+    </div>
+    <button onclick="showPasswordPrompt('Andrea D\'Ortenzio')">Andrea D'Ortenzio</button>
+</div>
+
+<!-- Guillermo Talep y Ximena López -->
+<div class="carousel-item" data-name="Guillermo Talep y Ximena López">
+    <div class="contenedorimg">
+        <img src="./Guillermo Talep y Ximena López.jpg" alt="Imagen de Guillermo Talep y Ximena López">
+    </div>
+    <button onclick="showPasswordPrompt('Guillermo Talep y Ximena López')">Guillermo Talep y Ximena López</button>
+</div>
+
+<!-- Luismi -->
+<div class="carousel-item" data-name="Luismi">
+    <div class="contenedorimg">
+        <img src="./Luismi.jpg" alt="Imagen de Luismi">
+    </div>
+    <button onclick="showPasswordPrompt('Luismi')">Luismi</button>
+</div>
+
+<!-- Magaly -->
+<div class="carousel-item" data-name="Magaly">
+    <div class="contenedorimg">
+        <img src="./Magaly de Meza.jpg" alt="Imagen de Magaly">
+    </div>
+    <button onclick="showPasswordPrompt('Magaly')">Magaly</button>
+</div>
+
+<!-- Tío Fer -->
+<div class="carousel-item" data-name="Tío Fer">
+    <div class="contenedorimg">
+        <img src="./Tío Fer.jpg" alt="Imagen de Tío Fer">
+    </div>
+    <button onclick="showPasswordPrompt('Tío Fer')">Tío Fer</button>
+</div>
+
+<!-- Kelly Jiménez -->
+<div class="carousel-item" data-name="Kelly Jiménez">
+    <div class="contenedorimg">
+        <img src="./Kelly Jiménez.jpg" alt="Imagen de Kelly Jiménez">
+    </div>
+    <button onclick="showPasswordPrompt('Kelly Jiménez')">Kelly Jiménez</button>
+</div>
+
+<!-- Patricia Guevara -->
+<div class="carousel-item" data-name="Amiga Patricia Guevara">
+    <div class="contenedorimg">
+        <img src="./PATRICIA GUEVARA.jpeg" alt="Imagen de Amiga Patricia Guevara">
+    </div>
+    <button onclick="showPasswordPrompt('Amiga Patricia Guevara')">Patricia Guevara</button>
+</div>
+
+<!-- Tía Mariela -->
+<div class="carousel-item" data-name="Tía Mariela">
+    <div class="contenedorimg">
+        <img src="./Tía Mariela.jpg" alt="Imagen de Tía Mariela">
+    </div>
+    <button onclick="showPasswordPrompt('Tía Mariela')">Tía Mariela</button>
+</div>
+
+<!-- Jorge Tapia -->
+<div class="carousel-item" data-name="Jorge Tapia">
+    <div class="contenedorimg">
+        <img src="./JORGE TAPIA .jpg" alt="Imagen de Jorge Tapia">
+    </div>
+    <button onclick="showPasswordPrompt('Jorge Tapia')">Jorge Tapia</button>
+</div>
+
+<!-- Edu Borés -->
+<div class="carousel-item" data-name="Edu Borés">
+    <div class="contenedorimg">
+        <img src="./edu.jpg" alt="Imagen de Edu Borés">
+    </div>
+    <button onclick="showPasswordPrompt('Edu Borés')">Edu Borés</button>
+</div>
+
+                            
+                
+            </div>
+            
+            <!-- ventana emergente -->
+            <div id="passwordModal" class="modal">
+                <div class="modal-content">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalHint"></p>
+                    <input type="password" id="userPassword" placeholder="Ingrese su contraseña">
+                    <button onclick="checkPassword()">Entrar</button>
+                </div>
+            </div>
+            
+            <button class="next" onclick="moverCarrusel(1)">❯</button>
+            
+            
+            <script>
+                // Diccionario de las contraseñas y pistas de cada nombre
+                const passwordsAndHints = {
+                    "Daniela Rodriguez": { password: 'Je suis colombienne', hint: 'Frase que aprendimos en la clase de francés y no paramos de decir' },
+                    "Berni": { password: 'esquizofrenia', hint: 'enfermedad mental que ambas padecemos empieza con e' },
+                    "Fran y Dani": { password: 'barbies negras', hint: '¿como se llama nuestro grupo?' },
+                    "Samu": { password: '<4', hint: 'al momento del fallo “<3”' },
+                    "Noah Vera": { password: 'demure', hint: 'si somos muy cutesy somos muy … ' },
+                    "María Carolina": { password: 'Barranquilla', hint: 'Es una conocida de mamá que nació en Los Ángeles o en Barranquilla' },
+                    "Kevin Maldonado": { password: 'piano', hint: ' ¿Kevin tu primo, toca varios instrumentos musicales, entre ellos el arpa o el piano?' },
+                    "Emi Eliécer": { password: 'Santa María de Manquehue', hint: '¿Emi vive en el sector de Santa María de Manquehue o  La Dehesa?' },
+                    "Nita Santiago": { password: 'girl', hint: 'Que palabra usamos para dirigirnos una a la otra' },
+                    "Sergi García": { password: 'dos besos', hint: 'como me saludas' },
+                    "Carls Asensio": { password: 'aguacate y huevo', hint: 'para enamorarme, me hiciste una tostada con...' },
+                    "Tío Richard y Familia": { password: 'New Jersey', hint: 'Tu tío Richard y su familia viven en...' },
+                    "Profe Diana": { password: 'Piano', hint: 'La profe Dina te daba clases de...' },
+                    "Alfonso Rodríguez": { password: 'Maria', hint: '¿Como te llamas?' },
+                    "Angels Ortiz": { password: 'pass11', hint: 'Décimo primer número' },
+                    "Omar Pérez": { password: 'Shakira', hint: '¿A que cantante hueles con tu colonia?' },
+                    "Alejo Trias": { password: 'Alexander', hint: '¿Hello, I’m British, what’s my name?' },
+                    "Victor Rodríguez": { password: 'Folladores', hint: 'Enanitos...' },
+                    "Noa Martínez": { password: ' victopussy', hint: 'como llamo a victor?' },
+                    "Edu Borés": { password: 'xoxo', hint: '43 Lima 🎀' },
+                    "Kelly Jiménez": { password: 'trapear el piso', hint: '¿lo que más me gustaba hacer era trapear el piso o ensuciar el piso?' },
+                    "Andrea D'Ortenzio": { password: 'el baile de la abeja', hint: 'como se llama nuestro baile?' },
+                    "Papi Lucho": { password: 'Toby', hint: 'Papi Lucho siempre te ha pedido una foto de...' },
+                    "Tía Genny": { password: 'Mi Galletica Can Can', hint: 'Tía Genny te llama cariñosamente' },
+                    "Luismi": { password: 'PAPA', hint: 'Como nos llamamos el uno al otro...' },
+                    "Anel": { password: 'Katty', hint: '¿Como se llamaba la última novia de Anel?' },
+                    "Tío Luchi": { password: 'TIITO', hint: '¿Como me llamas tú cariñosamente?' },
+                    "Papá": { password: 'Tenis y Boxeo', hint: 'Los deportes que papá practica habitualmente son Tenis y Boxeo o Voleibol y Béisbol' },
+                    "Tía Ingrid": { password: 'Salgar', hint: 'Tía Ingrid tiene una casa en la playa en donde la has visitado en...' },
+                    "Mami": { password: 'Mi Chiquitina hermosa', hint: 'Te llamio Mi Chiquitina hermosa o Mi princesa bella' },
+                    "Beverly y familia": { password: 'Las Negritas Puloys', hint: ' Beverly es bailarina del grupo folklórico...' },
+                    "Darlys": { password: 'baja', hint: '¿Darlys es de estatura muy alta o muy baja?' },
+                    "Alejo y Katha": { password: 'la Universidad Del Desarrollo', hint: 'Alejo y Katha se conocieron en Chile, en la Universidad Adolfo Ibáñez o la Universidad Del Desarrollo' },
+                    "Sebas Nordewier": { password: 'Londres', hint: '¿Es tu primo que estudia en Utrecht (Países Bajos ) y que nació en Londres o en Amsterdam?' },
+                    "Daniela Ortega y familia": { password: 'Malta', hint: 'Es tu prima que vive en Croacia o Malta?' },
+                    "Luisfer Ortega y familia": { password: 'Julián', hint: 'El hijo menor de tu primo Luisfer se llama...' },
+                    "Alejandro Mercader y flia": { password: 'Camila', hint: 'El nombre de la hija adolescente de  Alejandro Mercader y su esposa Susana, es Ignacia o Camila' },
+                    "Maripau Carrillo": { password: 'mama', hint: 'Es una amiga colombiana de tío Luchi o mama?' },
+                    "Mónica Fernández": { password: 'mama', hint: 'Es una amiga de mama o de papa?' },
+                    "María Rosa Ardila": { password: 'Daniela, Mariana y Valentina', hint: 'Amiga colombiana de mamá cuyas hijas se llaman Daniela, Mariana y Valentina o Carolina, Martha y Valeria?' },
+                    "Katia Rodríguez": { password: 'SEK Internacional', hint: 'Amiga colombiana de mamá cuyo hijo Julián Tobar, estudió el Bachillerato Internacional en el Colegio SEK Internacional o en el Red Land School' },
+                    "Lina Torres": { password: 'Guajira', hint: 'Es una amiga de mamá que nació en Madrid o Guajira?' },
+                    "María Clara Lafaurie": { password: 'Barranquilla', hint: 'Amiga colombiana de mamá que ahora vive en Canadá pero que nació en Bogotá o Barranquilla?' },
+                    "Jorge Tapia": { password: 'Simón', hint: 'Es un querido amigo de mamá y papá, cuyo hijo se llama Simón o Pedro?' },
+                    "Jorge Santiago": { password: 'chilena', hint: 'Es una amigo de mamá de nacionalidad brasilera o chilena?' },
+                    "Mónica Arrieta": { password: 'Daniel Rincón', hint: 'Es una amiga colombiana de mamá cuya hijo se llama Daniel Rincón o Pablo Rincón' },
+                    "Prima Lissette Ramos": { password: 'Los Ángeles', hint: 'La prima Lisette vive en...' },
+                    "Amiga Patricia Guevara": { password: 'Javier Quiroz', hint: 'Es una amiga peruana de mamá que es sobrina del chileno Jorge Tapia o  Javier Quiroz?' },
+                    "Javier Quiroz": { password: 'Chicha Morada', hint: 'El primer refresco de origen peruano que Javier Quiroz te brindó en La Vega Central cuando te conoció estando pequeña, fue Chicha Morada o Inka Kola' },
+                    "Dr. Ricardo Jorquera": { password: 'la rodilla de la pierna izquierda', hint: 'Te opero del brazo izquierdo o de la rodilla de la pierna izquierda?' },
+                    "Nicolás Forcadell Bordoy": { password: 'Arepas', hint: '¿Qué me tienes que cocinar algún día?' },
+                    "Tía Norbely": { password: 'Luisfer', hint: 'Tía Norbely es la mamá de tu primo...' },
+                    "Erik Helbek": { password: 'marica', hint: '¿Como nos llamamos?' },
+                    "Tía Mariela": { password: 'TÍIS', hint: 'A tía Mariela le dices:' },
+                    "Tío Fer": { password: 'Junior de Barranquilla', hint: 'Tío Fer es fanático a morir del equipo...' },
+                    "Familia Gómez Ahumada": { password: 'Huechuraba', hint: 'La comuna en donde viven el compadre Marcelo y la comadre Osiris con sus hijas, es Providencia o Huechuraba' },
+                    "Mario Meza": { password: 'mama', hint: ' Es un querido amigo chileno de papá o mama?' },
+                    "Guillermo Talep y Ximena López": { password: 'conejo', hint: ' La mascota que, estando pequeña, Guillermo te ayudó a encontrar en el jardín de nuestra primera casa en Santiago, fue un gato o un conejo?' },
+                    "Magaly": { password: 'Mario Meza', hint: ' Es la esposa de Mario Meza o Amir Rayá' },
+                    "Diana Maldonado": { password: 'Susana', hint: 'Es una amiga colombiana de mamá cuya hija se llama Carolina o Susana?' },
+                    "Yenifer Rojas": { password: 'venezolano', hint: 'Es la Asesora del Hogar de la casa familiar en Chile. Ella es de origen venezolano o canadiense?' },
+                    "Mónica Ramírez": { password: 'Universidad Del Desarrollo', hint: 'Es una amiga chilena de mamá, que fue compañera de MBA en la Universidad  Andrés Bello o en la Universidad Del Desarrollo?' },
+                };
+
+        
+            
+        // Función para mostrar el prompt de la contraseña y redirigir si es correcta
+        let currentName = ''; // Variable para almacenar el nombre actual
+
+    // Función para mostrar la ventana emergente
+    function showPasswordPrompt(name) {
+        currentName = name; // Guardamos el nombre actual para luego verificar la contraseña
+        const modal = document.getElementById('passwordModal');
+        document.getElementById('modalTitle').textContent = `Ingrese la contraseña para ${name}`;
+        document.getElementById('modalHint').textContent = `Pista: ${passwordsAndHints[name].hint}`;
+        modal.style.display = 'block'; // Mostrar el modal
+    }
+
+    // Función para verificar la contraseña ingresada
+    function checkPassword() {
+        const userPassword = document.getElementById('userPassword').value;
+        const modal = document.getElementById('passwordModal');
+        if (userPassword && userPassword.toLowerCase() === passwordsAndHints[currentName].password.toLowerCase()) {
+            // Redirigir si la contraseña es correcta
+            window.location.href = `${currentName.toLowerCase()}.html`;
+        } else {
+            alert('Contraseña incorrecta');
+        }
+        modal.style.display = 'none'; // Ocultar el modal
+    }
+
+    // Cerrar el modal si el usuario hace clic fuera de él
+    window.onclick = function(event) {
+        const modal = document.getElementById('passwordModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+        let currentIndex = 0; // Índice actual del carrusel
+        let autoSlideInterval;
+        let autoSlideEnabled = true; // Controla si el carrusel se mueve automáticamente
+
+        // Función para mostrar tres ítems en el carrusel
+        function mostrarCarrusel(index) {
+            const items = document.querySelectorAll('.carousel-item');
+            const totalItems = items.length;
+
+            // Esconder todos los ítems
+            items.forEach(item => item.style.display = 'none');
+
+            // Mostrar tres ítems a partir del índice actual
+            for (let i = 0; i < 3; i++) {
+                let itemIndex = (index + i) % totalItems;
+                items[itemIndex].style.display = 'block';
+            }
+        }
+
+        // Función para mover el carrusel
+        function moverCarrusel(direction) {
+            const items = document.querySelectorAll('.carousel-item').length;
+            currentIndex = (currentIndex + direction + items) % items;
+            mostrarCarrusel(currentIndex);
+
+            // Si el carrusel se mueve manualmente, reinicia el auto-slide
+            if (autoSlideEnabled) {
+                reiniciarAutoSlide();
+            }
+        }
+
+        // Iniciar el carrusel y mover automáticamente cada 3 segundos
+        function iniciarCarrusel() {
+            mostrarCarrusel(currentIndex);
+            autoSlideInterval = setInterval(() => moverCarrusel(1), 3000);
+        }
+
+        // Reinicia el auto-slide después de una interacción manual
+        function reiniciarAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(() => moverCarrusel(1), 3000);
+        }
+
+        // Detener el auto-slide si el usuario está buscando
+        function detenerAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideEnabled = false;
+        }
+
+        // Función para filtrar nombres en el carrusel
+        function buscarNombre() {
+            let input = document.getElementById('searchInput').value.toUpperCase();
+            let buttons = document.querySelectorAll(".carousel-item button");
+
+            // Si se está buscando un nombre, detener el auto-slide
+            if (input !== "") {
+                detenerAutoSlide();
+            } else {
+                autoSlideEnabled = true;
+                reiniciarAutoSlide();
+            }
+
+            // Filtrar los botones según el texto ingresado
+            buttons.forEach(button => {
+                const parentItem = button.parentElement;
+                if (button.textContent.toUpperCase().indexOf(input) > -1) {
+                    parentItem.style.display = "block";
+                } else {
+                    parentItem.style.display = "none";
+                }
+            });
+        }
+
+        // Iniciar el carrusel al cargar la página
+        document.addEventListener('DOMContentLoaded', iniciarCarrusel);
+
+    </script>
+</body>
+</html>

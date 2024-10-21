@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>María Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        .Nitamensaje {
+            border-radius: 3.125vw; 
+            background: #ffffff;
+            box-shadow: 0 0.25vw 0.625vw 0 #603E3E;
+            width: 80%;
+            max-width: 50vw;
+            height: 70vh;
+            flex-direction: column;
+            padding: 2vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tnita {
+            color: #521d2d;
+            font-family: "Satisfy", cursive;
+            font-size: 3vw;
+            font-style: normal;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Estilos para el carrusel */
+        .carousel {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel img, .carousel video {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 2vw;
+        }
+
+        .carousel img:not(.active), .carousel video:not(.active) {
+            display: none;
+        }
+
+        /* Flechas de navegación */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 1vw;
+            cursor: pointer;
+            font-size: 3vw;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 25vw;
+        }
+
+        .next {
+            right: 25vw;
+        }
+
+        /* Media queries para adaptabilidad móvil */
+        @media (max-width: 768px) {
+            .Nitamensaje {
+                width: 90%;
+                max-width: 90%;
+                height: auto;
+                padding: 3vw;
+            }
+
+            .tnita {
+                font-size: 6vw;
+            }
+
+            .carousel {
+                height: 50vh;
+            }
+
+            .arrow {
+                font-size: 6vw;
+                padding: 2vw;
+            }
+
+            .prev {
+                left: 5vw;
+            }
+
+            .next {
+                right: 5vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Nitamensaje {
+                width: 100%;
+                padding: 4vw;
+            }
+
+            .tnita {
+                font-size: 8vw;
+            }
+
+            .carousel {
+                height: 40vh;
+            }
+
+            .arrow {
+                font-size: 8vw;
+                padding: 3vw;
+            }
+
+            .prev {
+                left: 2vw;
+            }
+
+            .next {
+                right: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="Nitamensaje">
+        <h2 class="tnita">Fran y Dani</h2>
+        
+        <!-- Carrusel de imágenes y videos -->
+        <div class="carousel">
+            <img src="fran.jpg" alt="Fran" class="active">
+            <img src="fran 1.jpg" alt="Fran 1">
+            <img src="dan 2.jpg" alt="Dan 2">
+            <video src="Fran y Dani.mp4" controls></video>
+            <video src="dani.mp4" controls></video>
+        </div>
+
+        <!-- Flechas para navegar en el carrusel -->
+        <button class="arrow prev">⬅️</button>
+        <button class="arrow next">➡️</button>
+
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.carousel img, .carousel video');
+        let currentIndex = 0;
+
+        document.querySelector('.next').addEventListener('click', () => {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % items.length;
+            items[currentIndex].classList.add('active');
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            items[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            items[currentIndex].classList.add('active');
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+

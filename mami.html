@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>María Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+        .Nitamensaje {
+            border-radius: 3.125vw; 
+            background: #ffffff;
+            box-shadow: 0 0.25vw 0.625vw 0 #603E3E;
+            width: 80%;
+            max-width: 50vw;
+            height: 70vh;
+            flex-direction: column;
+            padding: 2vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tnita {
+            color: #521d2d;
+            font-family: "Satisfy", cursive;
+            font-size: 3vw;
+            font-style: normal;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Estilos del carrusel */
+        .carousel {
+            width: 100%;
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 2vw;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carousel-item {
+            min-width: 100%; /* Asegura que solo una imagen se muestre a la vez */
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f3f3; /* Fondo temporal */
+        }
+
+        .carousel img, .carousel video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            padding: 1rem;
+            color: #521d2d;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .Nitamensaje {
+                width: 90%;
+                max-width: 90%;
+                height: auto;
+                padding: 4vw;
+            }
+
+            .tnita {
+                font-size: 5vw;
+                margin-bottom: 2vw;
+            }
+
+            .carousel {
+                height: 40vh;
+            }
+
+            .prev, .next {
+                font-size: 1.5rem;
+                padding: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Nitamensaje {
+                width: 95%;
+                max-width: 95%;
+                height: auto;
+                padding: 5vw;
+            }
+
+            .tnita {
+                font-size: 6vw;
+            }
+
+            .carousel {
+                height: 35vh;
+            }
+
+            .prev, .next {
+                font-size: 1.25rem;
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="Nitamensaje">
+        <h2 class="tnita">Mami ❤️</h2>
+
+        <!-- Carrusel de fotos y video -->
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="./mami 2.jpg" alt="Foto 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="./mami 3.jpg" alt="Foto 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="./mami 4.jpg" alt="Foto 3">
+                </div>
+                <div class="carousel-item">
+                    <video controls>
+                        <source src="./mami.mp4" type="video/mp4">
+                        Tu navegador no soporta la reproducción de video.
+                    </video>
+                </div>
+            </div>
+            <div class="prev" onclick="moveCarousel(-1)">&#10094;</div>
+            <div class="next" onclick="moveCarousel(1)">&#10095;</div>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const totalItems = document.querySelectorAll('.carousel-item').length;
+
+            currentIndex = (currentIndex + direction + totalItems) % totalItems;
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    </script>
+   
+</body>
+</html>
+
+
+
