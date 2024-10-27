@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
          .modal {
             display: none;
@@ -47,6 +48,31 @@
         .modal-content button:hover {
             background-color: #218838;
         }
+
+        /* Estilos para el contenedor de la contraseña */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Espacio para el icono */
+    padding: 1.04vw;
+    margin: 1.04vw 0;
+    border: 0.1vw solid #ccc;
+    border-radius: 0.52vw;
+    box-sizing: border-box;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta este valor según necesites */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 
 
         @media (max-width: 768px) {
@@ -606,6 +632,9 @@
                     <p id="modalHint"></p>
                     <div class="password-container">
                         <input type="password" id="userPassword" placeholder="Ingrese su contraseña">
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <i id="eyeIcon" class="fa fa-eye"></i>
+                        </span>
                     </div>
                     <button onclick="checkPassword()">Entrar</button>
                 </div>
@@ -616,6 +645,21 @@
             
             
             <script>
+
+                function togglePasswordVisibility() {
+                    var passwordInput = document.getElementById("userPassword");
+                    var eyeIcon = document.getElementById("eyeIcon");
+                    if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        eyeIcon.classList.remove("fa-eye");
+                        eyeIcon.classList.add("fa-eye-slash");
+                    } else {
+                        passwordInput.type = "password";
+                        eyeIcon.classList.remove("fa-eye-slash");
+                        eyeIcon.classList.add("fa-eye");
+                    }
+                }
+
 
                 // Diccionario de las contraseñas y pistas de cada nombre
                 const passwordsAndHints = {
