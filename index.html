@@ -47,6 +47,26 @@
         .modal-content button:hover {
             background-color: #218838;
         }
+        .password-container {
+    position: relative;
+    width: 100%; /* Ajusta el ancho según sea necesario */
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Espacio para el icono */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajusta la posición horizontal */
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
 
         @media (max-width: 768px) {
     .modal-content {
@@ -603,15 +623,41 @@
                 <div class="modal-content">
                     <h2 id="modalTitle"></h2>
                     <p id="modalHint"></p>
-                    <input type="password" id="userPassword" placeholder="Ingrese su contraseña">
+                    <div class="password-container">
+                        <input type="password" id="userPassword" placeholder="Ingrese su contraseña">
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <i id="eyeIcon" class="fa fa-eye"></i>
+                        </span>
+                    </div>
                     <button onclick="checkPassword()">Entrar</button>
                 </div>
             </div>
+
             
             <button class="next" onclick="moverCarrusel(1)">❯</button>
             
             
             <script>
+
+                function togglePasswordVisibility() {
+                    var passwordInput = document.getElementById("userPassword");
+                    var eyeIcon = document.getElementById("eyeIcon");
+                    if (passwordInput.type === "password") {
+                        passwordInput.type = "text";
+                        eyeIcon.classList.remove("fa-eye");
+                        eyeIcon.classList.add("fa-eye-slash");
+                    } else {
+                        passwordInput.type = "password";
+                        eyeIcon.classList.remove("fa-eye-slash");
+                        eyeIcon.classList.add("fa-eye");
+                    }
+                }
+            
+                function checkPassword() {
+                    // Tu lógica para verificar la contraseña
+                }
+
+
                 // Diccionario de las contraseñas y pistas de cada nombre
                 const passwordsAndHints = {
                     "Daniela Rodriguez": { password: 'Je suis colombienne', hint: 'Frase que aprendimos en la clase de francés y no paramos de decir' },
