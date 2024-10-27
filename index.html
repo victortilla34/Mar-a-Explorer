@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-         .modal {
+        .modal {
             display: none;
             position: fixed;
             z-index: 1;
@@ -20,6 +20,7 @@
             height: 100vh;
             background-color: rgba(0, 0, 0, 0.5); 
         }
+        
         .modal-content {
             background-color: #E7C3BF;
             margin: 15vh auto;
@@ -30,6 +31,7 @@
             color: #521D2D;
             box-shadow: 0 0.2vw 0.4vw rgba(0, 0, 0, 0.1);
         }
+        
         .modal-content input[type="password"] {
             width: 25vw;
             padding: 1.04vw;
@@ -37,6 +39,7 @@
             border: 0.1vw solid #ccc;
             border-radius: 0.52vw;
         }
+        
         .modal-content button {
             padding: 1.04vw 2.08vw;
             background-color: #7d4554;
@@ -45,55 +48,67 @@
             border-radius: 0.52vw;
             cursor: pointer;
         }
+        
         .modal-content button:hover {
             background-color: #218838;
         }
-
+        
         /* Estilos para el contenedor de la contraseña */
-.password-container {
-    position: relative;
-    width: 100%;
-}
-
-.password-container input {
-    width: 25vw;
+        .password-container {
+            position: relative;
+            width: 100%;
+        }
+        
+        .password-container input {
+            width: 25vw;
             padding: 1.04vw;
             margin: 1.04vw 0;
             border: 0.1vw solid #ccc;
             border-radius: 0.52vw;
-}
-
-.password-container .toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Ajusta este valor según necesites */
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-
-
+            box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+        }
+        
+        .password-container .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 10px; /* Ajusta este valor según necesites */
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+        
         @media (max-width: 768px) {
-    .modal-content {
-        width: 80vw; /* Aumentamos el ancho en pantallas más pequeñas */
-        padding: 5vw; /* Más espacio de relleno */
-        margin: 10vh auto; /* Ajustar el margen superior */
-        border-radius: 2vw;
-    }
+            .modal-content {
+                width: 90vw; /* Aumentamos el ancho en pantallas más pequeñas */
+                padding: 5vw; /* Más espacio de relleno */
+                margin: 10vh auto; /* Ajustar el margen superior */
+                border-radius: 2vw;
+            }
+        
+            .password-container input {
+                width: 80vw; /* Aumentamos el tamaño del input para móviles */
+                padding: 3vw; /* Aumentamos el padding */
+                font-size: 4vw; /* Aumentamos el tamaño de la fuente */
+            }
+        
+            .modal-content input[type="password"] {
+                width: 80vw; /* Ajustamos el ancho del input dentro del modal */
+                padding: 3vw;
+                font-size: 4vw;
+            }
+        
+            .password-container .toggle-password {
+                right: 25px; /* Ajustamos la posición del icono */
+            }
+        
+            .modal-content button {
+                width: 60vw; /* Ajustamos el ancho del botón para móviles */
+                padding: 2vw;
+                font-size: 4vw; /* Aumentamos el tamaño de la fuente del botón */
+                border-radius: 2vw;
+                margin-top: 2vw; /* Añadimos margen superior para separar del input */
+            }
+        }
 
-    .modal-content input[type="password"] {
-        width: 70vw; /* Aumentamos el tamaño del input para móviles */
-        padding: 3vw; /* Aumentamos el padding */
-        font-size: 4vw; /* Aumentamos el tamaño de la fuente */
-    }
-
-    .modal-content button {
-        width: 50vw; /* Ajustamos el ancho del botón para móviles */
-        padding: 2vw;
-        font-size: 4vw; /* Aumentamos el tamaño de la fuente del botón */
-        border-radius: 2vw;
-    }
-}
         
         
     </style>
